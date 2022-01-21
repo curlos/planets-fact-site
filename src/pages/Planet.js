@@ -32,10 +32,10 @@ const Planet = () => {
 
   return (
     <Box p="30px">
-      <Grid templateColumns="2fr 1fr">
+      <Grid templateColumns="2fr 1fr" d={{ base: 'block', md: 'grid'}}>
         {type !== 'geology' ? (
           <Flex justify="center" align="center" flexGrow="2">
-            <Image src={planet.images[type].slice(1,)} height="336px" />
+            <Image src={planet.images[type].slice(1,)} height={{ base: '200px', md: '336px'}} mb={{ base: '20px', md: '0px' }}/>
           </Flex>
         ) : (
           <Flex justify="center" align="center" flexGrow="2">
@@ -44,11 +44,11 @@ const Planet = () => {
           </Flex>
         )}
         <Flex flexDirection="column" gap="20px" flexGrow="1">
-          <Text fontSize="80px">{planet.name}</Text>
-          <Text fontFamily="Spartan" fontSize="14px">
+          <Text fontSize="80px" textAlign={{ base: 'center', md: 'start'}}>{planet.name}</Text>
+          <Text fontFamily="Spartan" fontSize="14px" textAlign={{ base: 'center', md: 'start'}}>
             {planet.overview.content}
           </Text>
-          <Text fontFamily="Spartan" fontSize="14px" color="#838391">
+          <Text fontFamily="Spartan" fontSize="14px" color="#838391" textAlign={{ base: 'center', md: 'start'}}>
             Source: <Link href={planet.overview.content} textDecoration="underline" color="#FFFFFF">Wikipedia.org</Link>
           </Text>
 
@@ -73,23 +73,23 @@ const Planet = () => {
         </Flex>
       </Grid>
 
-      <Grid templateColumns="1fr 1fr 1fr 1fr" gridGap="20px" py="30px" px="70px" my="30px">
-        <Box border="1px" borderColor="#838391" p="20px">
+      <Grid templateColumns="1fr 1fr 1fr 1fr" gridGap="20px" py="30px" px={{ md: '70px'}} my="30px" d={{ base: 'block', md: 'grid'}}>
+        <Box border="1px" borderColor="#838391" p="20px" mb={{ base: '15px', md: '0px'}}>
           <Text fontSize="11px" fontWeight="bold" fontFamily="Spartan" color="#838391">ROTATION TIME</Text>
           <Text fontSize="40px" fontWeight="medium">{planet.rotation}</Text>
         </Box>
 
-        <Box border="1px" borderColor="#838391" p="20px">
+        <Box border="1px" borderColor="#838391" p="20px" mb={{ base: '15px', md: '0px'}}>
           <Text fontSize="11px" fontWeight="bold" fontFamily="Spartan" color="#838391">REVOLUTION TIME</Text>
           <Text fontSize="40px" fontWeight="medium">{planet.revolution}</Text>
         </Box>
 
-        <Box border="1px" borderColor="#838391" p="20px">
+        <Box border="1px" borderColor="#838391" p="20px" mb={{ base: '15px', md: '0px'}}>
           <Text fontSize="11px" fontWeight="bold" fontFamily="Spartan" color="#838391">RADIUS</Text>
           <Text fontSize="40px" fontWeight="medium">{planet.radius}</Text>
         </Box>
 
-        <Box border="1px" borderColor="#838391" p="20px">
+        <Box border="1px" borderColor="#838391" p="20px" mb={{ base: '15px', md: '0px'}}>
           <Text fontSize="11px" fontWeight="bold" fontFamily="Spartan" color="#838391">AVERAGE TEMP</Text>
           <Text fontSize="40px" fontWeight="medium">{planet.temperature}</Text>
         </Box>
