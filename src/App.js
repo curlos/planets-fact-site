@@ -7,6 +7,7 @@ import {
 import { Box } from "@chakra-ui/react"
 import Navbar from "./components/Navbar";
 import Planet from './pages/Planet'
+import Home from "./pages/Home";
 
 
 const App = () => {
@@ -17,7 +18,7 @@ const App = () => {
           
         <Routes>
           <Route path="/planet/:name" element={<Planet />} />
-          <Route path="/" element={<Navigate to="/planet/Earth" />} />
+          <Route path="/" element={<Home />} />
         </Routes>
       </Box>
     </BrowserRouter>

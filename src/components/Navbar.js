@@ -10,8 +10,10 @@ const Navbar = () => {
   console.log(planets)
 
   return (
-    <Flex justify="space-between" align="center" p="20px" borderBottom="1px" borderColor="#838391">
-      <Box fontSize="28px">THE PLANETS</Box>
+    <Flex justify="space-between" align="center" p="20px" borderBottom="1px" borderColor="#838391" position="sticky">
+      <Link to="/">
+        <Box fontSize="28px">THE PLANETS</Box>
+      </Link>
 
       <Flex align="center" gap="14px" fontFamily="Spartan" fontWeight="700" fontSize="11px" lineHeight="25px" letterSpacing={"1px"}>
         {planets.map((planet) => (

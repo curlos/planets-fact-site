@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Flex, Grid, Image, Text, Link, Button } from "@chakra-ui/react"
 import { useParams } from 'react-router-dom';
 import getData from '../utils/data';
@@ -21,6 +21,10 @@ const Planet = () => {
   const planets = getData()
   const planet = planets.find((planet) => planet.name === name)
   const [type, setType] = useState('planet')
+
+  useEffect(() => {
+    window.scrollTo(0,0)
+  }, [name])
 
   console.log(name)
   console.log(planet)
@@ -76,18 +80,18 @@ const Planet = () => {
         </Box>
 
         <Box border="1px" borderColor="#838391" p="20px">
-          <Text fontSize="11px" fontWeight="bold" fontFamily="Spartan" color="#838391">ROTATION TIME</Text>
-          <Text fontSize="40px" fontWeight="medium">{planet.rotation}</Text>
+          <Text fontSize="11px" fontWeight="bold" fontFamily="Spartan" color="#838391">REVOLUTION TIME</Text>
+          <Text fontSize="40px" fontWeight="medium">{planet.revolution}</Text>
         </Box>
 
         <Box border="1px" borderColor="#838391" p="20px">
-          <Text fontSize="11px" fontWeight="bold" fontFamily="Spartan" color="#838391">ROTATION TIME</Text>
-          <Text fontSize="40px" fontWeight="medium">{planet.rotation}</Text>
+          <Text fontSize="11px" fontWeight="bold" fontFamily="Spartan" color="#838391">RADIUS</Text>
+          <Text fontSize="40px" fontWeight="medium">{planet.radius}</Text>
         </Box>
 
         <Box border="1px" borderColor="#838391" p="20px">
-          <Text fontSize="11px" fontWeight="bold" fontFamily="Spartan" color="#838391">ROTATION TIME</Text>
-          <Text fontSize="40px" fontWeight="medium">{planet.rotation}</Text>
+          <Text fontSize="11px" fontWeight="bold" fontFamily="Spartan" color="#838391">AVERAGE TEMP</Text>
+          <Text fontSize="40px" fontWeight="medium">{planet.temperature}</Text>
         </Box>
         
       </Grid>
