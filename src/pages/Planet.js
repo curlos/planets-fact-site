@@ -3,6 +3,18 @@ import { Box, Flex, Grid, Image, Text, Link, Button } from "@chakra-ui/react"
 import { useParams } from 'react-router-dom';
 import getData from '../utils/data';
 
+const COLORS = {
+  'Mercury': '#419EBB',
+  'Venus': '#EDA249',
+  'Earth': '#6D2ED5',
+  'Mars': '#D14C32',
+  'Jupiter': '#D83A34',
+  'Saturn': '#CD5120',
+  'Uranus': '#1EC1A2',
+  'Neptune': '#2D68F0'
+
+}
+
 const Planet = () => {
 
   const { name } = useParams()
@@ -17,9 +29,16 @@ const Planet = () => {
   return (
     <Box p="30px">
       <Grid templateColumns="2fr 1fr">
-        <Flex justify="center" align="center" flexGrow="2">
-          <Image src={planet.images[type].slice(1,)} />
-        </Flex>
+        {type !== 'geology' ? (
+          <Flex justify="center" align="center" flexGrow="2">
+            <Image src={planet.images[type].slice(1,)} height="336px" />
+          </Flex>
+        ) : (
+          <Flex justify="center" align="center" flexGrow="2">
+            <Image src={planet.images['planet'].slice(1,)} height="336px"/>
+            <Image src={planet.images[type].slice(1,)} height="199px" mb="-330px" position="absolute"/>
+          </Flex>
+        )}
         <Flex flexDirection="column" gap="20px" flexGrow="1">
           <Text fontSize="80px">{planet.name}</Text>
           <Text fontFamily="Spartan" fontSize="14px">
@@ -30,18 +49,18 @@ const Planet = () => {
           </Text>
 
           <Flex flexDirection="column" gap="20px">
-            <Box d="flex" gap="25px" p="20px" px="25px" m="0px" bgColor={"#FF6A44"} borderRadius="0px" fontFamily="Spartan" fontSize="12px" fontWeight="bold" letterSpacing="2px">
+            <Box d="flex" gap="25px" p="20px" px="25px" m="0px" bgColor={type === 'planet' ? COLORS[planet.name] : '#070724'} border={'1px'} borderColor={type !== 'planet' ? '#838391' : 'transparent'} borderRadius="0px" fontFamily="Spartan" fontSize="12px" fontWeight="bold" letterSpacing="2px" cursor="pointer" _hover={{ bgColor: '#38384F', borderColor: '#38384F' }} onClick={() => setType('planet')}>
               <Text>01</Text>
               <Text>OVERVIEW</Text>
             </Box>
 
-            <Box d="flex" gap="25px" p="20px" px="25px" m="0px" bgColor={"#FF6A44"} borderRadius="0px" fontFamily="Spartan" fontSize="12px" fontWeight="bold" letterSpacing="2px">
-              <Text>01</Text>
+            <Box d="flex" gap="25px" p="20px" px="25px" m="0px" bgColor={type === 'internal' ? COLORS[planet.name] : '#070724'} border={'1px'} borderColor={type !== 'internal' ? '#838391' : 'transparent'} borderRadius="0px" fontFamily="Spartan" fontSize="12px" fontWeight="bold" letterSpacing="2px" cursor="pointer" _hover={{ bgColor: '#38384F', borderColor: '#38384F' }} onClick={() => setType('internal')}>
+              <Text>02</Text>
               <Text>INTERNAL STRUCTURE</Text>
             </Box>
 
-            <Box d="flex" gap="25px" p="20px" px="25px" m="0px" border="1px" borderColor="#838391" borderRadius="0px" fontFamily="Spartan" fontSize="12px" fontWeight="bold" letterSpacing="2px">
-              <Text>01</Text>
+            <Box d="flex" gap="25px" p="20px" px="25px" m="0px" bgColor={type === 'geology' ? COLORS[planet.name] : '#070724'} border={'1px'} borderColor={type !== 'geology' ? '#838391' : 'transparent'} borderRadius="0px" fontFamily="Spartan" fontSize="12px" fontWeight="bold" letterSpacing="2px" cursor="pointer" _hover={{ bgColor: '#38384F', borderColor: '#38384F' }} onClick={() => setType('geology')}>
+              <Text>03</Text>
               <Text>SURFACE GEOLOGY</Text>
             </Box>
 

@@ -1,7 +1,8 @@
 import {
   BrowserRouter,
   Routes,
-  Route
+  Route,
+  Navigate
 } from "react-router-dom";
 import { Box } from "@chakra-ui/react"
 import Navbar from "./components/Navbar";
@@ -16,6 +17,7 @@ const App = () => {
           
         <Routes>
           <Route path="/planet/:name" element={<Planet />} />
+          <Route path="/" element={<Navigate to="/planet/Earth" />} />
         </Routes>
       </Box>
     </BrowserRouter>
