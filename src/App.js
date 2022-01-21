@@ -1,12 +1,24 @@
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
 import { Box } from "@chakra-ui/react"
 import Navbar from "./components/Navbar";
+import Planet from './pages/Planet'
 
 
 const App = () => {
   return (
-    <Box bgColor="#070724" minHeight="100vh" color="#FFFFFF" fontFamily="Antonio">
-      <Navbar />
-    </Box>
+    <BrowserRouter>
+      <Box bgImage="/assets/background-stars.svg" bgColor="#070724" minHeight="100vh" color="#FFFFFF" fontFamily="Antonio">
+        <Navbar />
+          
+        <Routes>
+          <Route path="/planet/:name" element={<Planet />} />
+        </Routes>
+      </Box>
+    </BrowserRouter>
   );
 }
 
