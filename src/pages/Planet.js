@@ -78,7 +78,7 @@ const Planet = () => {
       <Grid templateColumns="1fr 1fr 1fr 1fr" gridGap="20px" py="30px" my="30px" d={{ base: 'block', md: 'grid'}}>
         {Object.keys(planetStats).map((statName) => (
           <Flex d={{ base: 'flex', md: 'block'}} justify="space-between" align="center" width="100%" border="1px" borderColor="#838391" p="20px" mb={{ base: '15px', md: '0px'}}>
-            <Text fontSize={{ base: '8px', xl: '11px'}}  fontWeight="bold" fontFamily="Spartan" color="#838391">{statName}</Text>
+            <Text fontSize={{ base: '11px', xl: '11px'}}  fontWeight="bold" fontFamily="Spartan" color="#838391">{statName}</Text>
             <Text fontSize={{ base: '20px', md: '24px', xl: '40px'}} fontWeight="medium">{planetStats[statName]}</Text>
           </Flex>
         ))}

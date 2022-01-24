@@ -13,7 +13,7 @@ const Home = () => {
         {planets.map((planet) => (
           <Flex flexDirection={'column'} justify="center" align="center" gap="15px" cursor="pointer" onClick={() => navigate(`/planet/${planet.name}`)}>
             <Image src={planet.images['planet'].slice(1,)} height="200px" />
-            <Text _hover={{ textDecoration: 'underline' }}>{planet.name}</Text>
+            <Text fontSize={{ base: '20px', xl: '30px' }} _hover={{ textDecoration: 'underline' }}>{planet.name}</Text>
           </Flex>
         ))}
       </Flex>
