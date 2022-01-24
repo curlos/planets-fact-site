@@ -29,6 +29,7 @@ const Planet = () => {
 
   useEffect(() => {
     window.scrollTo(0,0)
+    setType('planet')
   }, [name])
 
   return (
@@ -36,22 +37,22 @@ const Planet = () => {
       <Grid templateColumns={{ base: 'none', lg: '2fr 1fr' }} templateRows={{ md: '2fr 1fr', lg: 'none'}}>
         {type !== 'geology' ? (
           <Flex justify="center" align="center" flexGrow="2">
-            <Image src={planet.images[type].slice(1,)} height={{ base: '200px', md: '336px'}} mb={{ base: '20px', md: '0px' }}/>
+            <Image src={planet.images[type].slice(1,)} height={{ base: '200px', md: '336px'}} mb={{ base: '20px', md: '0px' }} />
           </Flex>
         ) : (
           <Flex justify="center" align="center" flexGrow="2">
-            <Image src={planet.images['planet'].slice(1,)} height="336px"/>
-            <Image src={planet.images[type].slice(1,)} height="199px" mb="-330px" position="absolute"/>
+            <Image src={planet.images['planet'].slice(1,)} height={{ base: '200px', md: '336px'}} />
+            <Image src={planet.images[type].slice(1,)} height={{ base: '125px', md: '199px'}} mb={{ base: '-165px', md: '-330px'}} position="absolute"/>
           </Flex>
         )}
         <Flex flexDirection={{base: 'row', lg: 'column'}} gap="20px" d={{ base: 'block', md: 'flex'}}>
           <VStack spacing={{ base: '20px' }} align={{ md: 'start' }} mb={{ base: '20px', md: '0px', 'lg': '20px' }} width={{ md: '55%', lg: 'auto' }} mr={{ md: '30px', lg: '0px' }}>
-            <Text fontSize="80px" textAlign={{ base: 'center', md: 'start'}}>{planet.name}</Text>
+            <Text fontSize="80px" textAlign={{ base: 'center', md: 'start'}} mt={{ base: `${type === 'geology' ? '40px' : '0px'}`, md: '0px' }}>{planet.name}</Text>
             <Text fontFamily="Spartan" fontSize="14px" textAlign={{ base: 'center', md: 'start'}}>
               {planet.overview.content}
             </Text>
             <Text fontFamily="Spartan" fontSize="14px" color="#838391" textAlign={{ base: 'center', md: 'start'}}>
-              Source: <Link href={planet.overview.content} textDecoration="underline" color="#FFFFFF">Wikipedia.org</Link>
+              Source: <Link href={planet.overview.source} isExternal textDecoration="underline" color="#FFFFFF">Wikipedia.org</Link>
             </Text>
           </VStack>
 
