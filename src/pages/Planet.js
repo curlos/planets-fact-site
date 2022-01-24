@@ -31,10 +31,6 @@ const Planet = () => {
     window.scrollTo(0,0)
   }, [name])
 
-  console.log(name)
-  console.log(planet)
-  console.log(planet.images[type])
-
   return (
     <Box p="30px">
       <Grid templateColumns={{ base: 'none', lg: '2fr 1fr' }} templateRows={{ md: '2fr 1fr', lg: 'none'}}>
@@ -78,7 +74,7 @@ const Planet = () => {
         </Flex>
       </Grid>
 
-      <Grid templateColumns="1fr 1fr 1fr 1fr" gridGap="20px" py="30px" px={{ lg: '70px'}} my="30px" d={{ base: 'block', md: 'grid'}}>
+      <Grid templateColumns="1fr 1fr 1fr 1fr" gridGap="20px" py="30px" my="30px" d={{ base: 'block', md: 'grid'}}>
         {Object.keys(planetStats).map((statName) => (
           <Flex d={{ base: 'flex', md: 'block'}} justify="space-between" align="center" width="100%" border="1px" borderColor="#838391" p="20px" mb={{ base: '15px', md: '0px'}}>
             <Text fontSize={{ base: '8px', xl: '11px'}}  fontWeight="bold" fontFamily="Spartan" color="#838391">{statName}</Text>

@@ -1,5 +1,10 @@
 import React from 'react';
-import { Box, Flex, Text, Image, textDecoration } from "@chakra-ui/react"
+import { 
+  Box, 
+  Flex, 
+  Text, 
+  Image
+} from "@chakra-ui/react"
 import getData from '../utils/data'
 import { Link } from 'react-router-dom';
 
@@ -14,11 +19,8 @@ const COLORS = {
   'Neptune': '#2D68F0'
 }
 
-const Navbar = () => {
-
+const Navbar = ({ btnRef, onOpen, onClose, modal }) => {
   const planets = getData()
-
-  console.log(planets)
 
   return (
     <Flex flexDirection={{md: 'column', lg: 'row'}} justify="space-between" align="center" gap={{ md: '20px' }} p="20px" borderBottom="1px" borderColor="#838391" position="sticky">
@@ -34,7 +36,7 @@ const Navbar = () => {
         ))}
       </Flex>
 
-      <Image src="/assets/icon-hamburger.svg" d={{ md: 'none'}}/>
+      <Image src="/assets/icon-hamburger.svg" d={{ md: 'none'}} ref={btnRef} onClick={!modal ? onOpen : onClose} />
     </Flex>
   )
 };
